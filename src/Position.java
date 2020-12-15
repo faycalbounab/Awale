@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import static java.lang.Math.max;
-import static java.lang.Math.min;
 
 public class Position {
 
