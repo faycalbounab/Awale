@@ -59,11 +59,12 @@ Cette fonction renvoi un entier qui est la différence des graines prises.
 ### playMove
 
 ```public static void playMove(Position posNext,Position pos,boolean computer_play,int i,boolean noir,int posSeed){}```
+
 Cette fonction joue un coup, elle prends les graines et les ditribue et elle ramasse les graines si elle est autorisée.
 
 ### minMaxValue
 
-```public static int minMaxValue(Position pos_current,boolean computer_play, int depth,int depthMax,int alpha,int beta){}``
+```public static int minMaxValue(Position pos_current,boolean computer_play, int depth,int depthMax,int alpha,int beta){}```
 
 Cette fonction est un algorithme qui trouve le chemin qui rapporte le plus de point?
 
