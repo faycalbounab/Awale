@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class Position {
 
@@ -80,7 +81,7 @@ public class Position {
 
     //****************************** FAMINE POUR VALIDMOVE ET FINALPOSITION ****************************//
 
-    public static boolean finalPosition(Position pos,boolean computerplay){
+    public static boolean finalPosition(Position pos, boolean computerplay){
         if(pos.getSeed_player() > 37 || pos.getSeed_computer() > 37){
             return true;
         }
@@ -91,7 +92,7 @@ public class Position {
 
 
         return false;
-// if plus de seed ou pas de coup jouable ou tas plus de la moitier des graines
+        // if plus de seed ou pas de coup jouable ou tas plus de la moitier des graines
     }
 
     public static boolean famine(Position pos_current, boolean computer_play){ // LA FAMINE
@@ -138,7 +139,7 @@ public class Position {
     }
 
 
-    public static void playMove(Position posNext,Position pos, boolean computer_play, int i, boolean noir, int posSeed) {
+    public static void playMove(Position posNext, Position pos, boolean computer_play, int i, boolean noir, int posSeed) {
         int nbNoir = pos.getCell_players()[i][0];
         int nbRouge = pos.getCell_players()[i][1];
         int nbSpe = pos.getCell_players()[i][2];
@@ -351,7 +352,7 @@ public class Position {
 
     }
 
-    public static int minMaxValue(Position pos_current, boolean computer_play,int depth,int depthMax,int alpha,int beta){
+    public static int minMaxValue(Position pos_current, boolean computer_play, int depth, int depthMax, int alpha, int beta){
         // computer_play True si l'ordinateur doit jouer, False sinon
         boolean noir = true;
         int posSeed = 0;
@@ -473,10 +474,8 @@ public class Position {
                                     posSeed = 0;
                                     indice = i;
                                 }
-                                /////////////////////////////////////
                                 actualiseVal(indice,posSeed,noir,depth);
                                 return valeur;
-                                /////////////////////////
                                 /*
                                 if(alpha >= valeur){
                                     actualiseVal(indice,posSeed,noir,depth);
@@ -484,6 +483,7 @@ public class Position {
                                 }
                                 beta = min(beta, valeur);
                                 */
+
                             }
                         }
                     }
@@ -501,17 +501,16 @@ public class Position {
                                         posSeed = j;
                                         indice = i;
                                     }
-                                    /////////////////////////////////////
                                     actualiseVal(indice,posSeed,noir,depth);
                                     return valeur;
-                                    /////////////////////////
-                                /*
-                                if(alpha >= valeur){
-                                    actualiseVal(indice,posSeed,noir,depth);
-                                    return valeur;
-                                }
-                                beta = min(beta, valeur);
-                                */
+                                    /*
+                                     if(alpha >= valeur){
+                                     actualiseVal(indice,posSeed,noir,depth);
+                                     return valeur;
+                                     }
+                                     beta = min(beta, valeur);
+                                     */
+
                                 }
                             }
 
@@ -524,17 +523,17 @@ public class Position {
                                     posSeed = j;
                                     indice = i;
                                 }
-                                /////////////////////////////////////
                                 actualiseVal(indice,posSeed,noir,depth);
+
                                 return valeur;
-                                /////////////////////////
                                 /*
-                                if(alpha >= valeur){
-                                    actualiseVal(indice,posSeed,noir,depth);
-                                    return valeur;
-                                }
-                                beta = min(beta, valeur);
-                                */
+                                 if(alpha >= valeur){
+                                 actualiseVal(indice,posSeed,noir,depth);
+                                 return valeur;
+                                 }
+                                 beta = min(beta, valeur);
+                                 */
+
                             }
                         }
                     }
@@ -624,16 +623,18 @@ public class Position {
         pos_current.setSeed_player(0);
         pos_current.setSeed_computer(0);
     }
+    /*
 
-    public static void startGameTest(Position pos_current, boolean computer_play){
-        int[][] tab = {{0,0,0},{0,0,0},{0,0,0},{0,3,0},{3,4,0},{0,0,0},
-                {0,0,0},{2,2,0},{1,1,0},{0,0,0},{0,3,0},{0,0,0}};
-        pos_current.setCell_players(tab);
-        pos_current.setComputerplay(computer_play);
-        pos_current.setSeed_player(0);
-        pos_current.setSeed_computer(0);
-    }
+     public static void startGameTest(Position pos_current, boolean computer_play){
+     int[][] tab = {{0,0,0},{0,0,0},{0,0,0},{0,3,0},{3,4,0},{0,0,0},
+     {0,0,0},{2,2,0},{1,1,0},{0,0,0},{0,3,0},{0,0,0}};
+     pos_current.setCell_players(tab);
+     pos_current.setComputerplay(computer_play);
+     pos_current.setSeed_player(0);
+     pos_current.setSeed_computer(0);
+     }
 
+     */
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
